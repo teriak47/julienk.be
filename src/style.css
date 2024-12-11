@@ -1,0 +1,128 @@
+/* === Imports === */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Cinzel:wght@400;700&display=swap');
+@import "tailwindcss";
+
+/* === Theme Definitions === */
+@theme {
+    --color-deep-blue: oklch(0.29 0.08 264);
+    --color-scarlet-red: oklch(0.53 0.23 27);
+    --color-metallic-gold: oklch(0.79 0.15 83);
+    --color-silver: oklch(0.75 0.02 264);
+    --color-charcoal-black: oklch(0.18 0.02 264);
+}
+
+/* === Global Styles === */
+:root {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-silver);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-deep-blue);
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+}
+
+/* === Utility Classes === */
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.text-gold {
+    color: var(--color-metallic-gold);
+}
+
+.bg-gold {
+    background-color: var(--color-metallic-gold);
+}
+
+/* === Layout === */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styles pour les titres structurés */
+.title-structured {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    /* Espacement entre les lignes */
+}
+
+.title-structured .highlight {
+    font-size: 2.5rem;
+    /* Taille pour la ligne principale */
+    font-weight: bold;
+    color: var(--color-metallic-gold);
+    /* Couleur de mise en valeur */
+}
+
+.title-structured span:nth-child(2) {
+    font-size: 1.5rem;
+    /* Taille pour la sous-ligne */
+    font-weight: normal;
+    color: var(--color-silver);
+    /* Couleur complémentaire */
+}
+
+/* === Animations === */
+
+/* Stars animation */
+.stars-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background-color: var(--color-silver);
+    border-radius: 50%;
+    animation: star-animation 3s linear infinite;
+}
+
+@keyframes star-animation {
+    0% {
+        transform: scale(0) translate(0, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) translate(100vw, 100vh);
+        opacity: 0;
+    }
+}
+
+/* Hover Effects */
+.link:hover {
+    color: var(--color-scarlet-red);
+    text-decoration: underline;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid var(--color-metallic-gold);
+    color: var(--color-metallic-gold);
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--color-metallic-gold);
+    color: var(--color-charcoal-black);
+}
